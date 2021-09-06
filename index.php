@@ -14,9 +14,14 @@
 <body>
     <div class="main-section">
         <div class="add-section">
-            <form action="" method="POST" autocomplete="off">
-                <input type="text" name="title" placeholder="This field is required" />
-                <button type="submit">Add &nbsp; <span>&#43;</span></button>
+            <form action="app/add.php" method="POST" autocomplete="off">
+                <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
+                    <input type="text" name="title" placeholder="This field is required" />
+                    <button type="submit">Add &nbsp; <span>&#43;</span></button>
+                <?php } else { ?>
+                    <input type="text" name="title" placeholder="What do you need to do?" />
+                    <button type="submit">Add &nbsp; <span>&#43;</span></button>
+                <?php } ?>
             </form>
         </div>
         <?php
