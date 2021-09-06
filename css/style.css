@@ -1,0 +1,10 @@
+body{
+    background: #000;
+}
+
+.empty {
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #ccc;
+}
