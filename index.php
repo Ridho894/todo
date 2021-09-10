@@ -27,30 +27,85 @@
         <?php
             $todos = $conn->query("SELECT * FROM todos ORDER BY id DESC")
         ?>
-        <div class="show-todo-section">
-            <?php if ($todos->rowCount() <= 0) { ?>
-                <div class="todo-item">
-                    <div class="empty">
-                        <img src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" width="100%" />
+        <div class="box-container">
+            <div class="show-todo-section">
+                <p>To Do</p>
+                <?php if ($todos->rowCount() <= 0) { ?>
+                    <div class="todo-item">
+                        <div class="empty">
+                            <img src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" width="100%" />
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
-
-            <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
-            <div class="todo-item">
-                <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
-                <?php if ($todo['checked']) { ?>
-                    <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" checked />
-                    <h2 class="checked"><?php echo $todo['title']; ?></h2>
-                <?php } else { ?>
-                    <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" />
-                    <h2><?php echo $todo['title']; ?></h2>
                 <?php } ?>
 
-                <br>
-                <small>Created: <?php echo $todo['date_time'] ?></small>
+                <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
+                <div class="todo-item">
+                    <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
+                    <?php if ($todo['checked']) { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" checked />
+                        <h2 class="checked"><?php echo $todo['title']; ?></h2>
+                    <?php } else { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" />
+                        <h2><?php echo $todo['title']; ?></h2>
+                    <?php } ?>
+
+                    <br>
+                    <small>Created: <?php echo $todo['date_time'] ?></small>
+                </div>
+                <?php } ?>
             </div>
-            <?php } ?>
+            <div class="show-todo-section">
+                <p>In Progress</p>
+                <?php if ($todos->rowCount() <= 0) { ?>
+                    <div class="todo-item">
+                        <div class="empty">
+                            <img src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" width="100%" />
+                        </div>
+                    </div>
+                <?php } ?>
+
+                <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
+                <div class="todo-item">
+                    <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
+                    <?php if ($todo['checked']) { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" checked />
+                        <h2 class="checked"><?php echo $todo['title']; ?></h2>
+                    <?php } else { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" />
+                        <h2><?php echo $todo['title']; ?></h2>
+                    <?php } ?>
+
+                    <br>
+                    <small>Created: <?php echo $todo['date_time'] ?></small>
+                </div>
+                <?php } ?>
+            </div>
+            <div class="show-todo-section">
+                <p>Completed</p>
+                <?php if ($todos->rowCount() <= 0) { ?>
+                    <div class="todo-item">
+                        <div class="empty">
+                            <img src="https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg" width="100%" />
+                        </div>
+                    </div>
+                <?php } ?>
+
+                <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
+                <div class="todo-item">
+                    <span id="<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
+                    <?php if ($todo['checked']) { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" checked />
+                        <h2 class="checked"><?php echo $todo['title']; ?></h2>
+                    <?php } else { ?>
+                        <input type="checkbox" class="check-box" data-todo-id = "<?php echo $todo['id']; ?>" />
+                        <h2><?php echo $todo['title']; ?></h2>
+                    <?php } ?>
+
+                    <br>
+                    <small>Created: <?php echo $todo['date_time'] ?></small>
+                </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <script src="/js/jquery-3.2.1.min.js"></script>
